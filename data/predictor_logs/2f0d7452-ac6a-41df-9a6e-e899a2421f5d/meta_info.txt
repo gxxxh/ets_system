@@ -1,0 +1,1 @@
+{'model': 'densenet121', 'batch_size': 8, 'input_size': 64, 'dtype': 1, 'gpu': 'T4CPUALL', 'log_id': '2f0d7452-ac6a-41df-9a6e-e899a2421f5d', 'time': '2024-01-16 09:07:43', 'error': ''}

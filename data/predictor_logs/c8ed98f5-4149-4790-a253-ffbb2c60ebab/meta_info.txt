@@ -1,0 +1,1 @@
+{'model': 'efficientnet_b1', 'batch_size': 32, 'input_size': 160, 'dtype': 1, 'gpu': 'T4CPUALL', 'log_id': 'c8ed98f5-4149-4790-a253-ffbb2c60ebab', 'time': '2024-01-16 09:07:43', 'error': ''}

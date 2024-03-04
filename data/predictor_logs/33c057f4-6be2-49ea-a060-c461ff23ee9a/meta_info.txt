@@ -1,0 +1,1 @@
+{'model': 'resnet18', 'batch_size': 32, 'input_size': 384, 'dtype': 1, 'gpu': 'T4CPUALL', 'log_id': '33c057f4-6be2-49ea-a060-c461ff23ee9a', 'time': '2024-01-16 09:07:43', 'error': ''}

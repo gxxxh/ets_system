@@ -1,0 +1,1 @@
+{'model': 'squeezenet1_0', 'batch_size': 64, 'input_size': 512, 'dtype': 1, 'gpu': 'T4CPUALL', 'log_id': 'ee22c7f5-caa0-4add-b7c6-f4a6242c7bfb', 'time': '2024-01-16 09:07:43', 'error': ''}
