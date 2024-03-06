@@ -57,4 +57,4 @@ def get_schedule_info(request: HttpRequest) -> JsonResponse:
                              'JCT': JCT(gpus),
                              'makespan': MAKESPAN(gpus)
                          }
-                         }, status=200)
+                         }, status=200, )
