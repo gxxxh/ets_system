@@ -30,8 +30,6 @@ def list_all(request: HttpRequest) -> JsonResponse:
     return JsonResponse({'data': res}, status=200)
 
 
-
-
 def list_detail(request: HttpRequest) -> JsonResponse:
     uuid = request.GET.get('uuid')
     if uuid is None:
@@ -57,4 +55,20 @@ def get_schedule_info(request: HttpRequest) -> JsonResponse:
                              'JCT': JCT(gpus),
                              'makespan': MAKESPAN(gpus)
                          }
+                         }, status=200, )
+
+
+def compare_schedule(request: HttpRequest) -> JsonResponse:
+    schedule_results = {}
+    for time_type in ['predict', 'measure', 'random']:
+        tasks = load_tasks(time_type)
+        gpus = generate_gpus()
+        gpus = SJF(tasks, gpus)
+        schedule_results[time_type] = {
+            'JCT': JCT(gpus),
+            'makespan': MAKESPAN(gpus)
+        }
+
+    return JsonResponse({'message': 'success',
+                         'data': schedule_results
                          }, status=200, )

@@ -24,5 +24,6 @@ urlpatterns = [
     path('perf/doperf', views.perf_model, name="perf_model"),
     path('perf/list/all', views.list_all, name="list_all"),
     path(r'perf/list/detail/', views.list_detail, name="list_detail"),
-    path('perf/schedule/', views.get_schedule_info, name="list_schedule"),
+    path('perf/schedule/detail', views.get_schedule_info, name="schedule_detail"),
+    path('perf/schedule/compare', views.compare_schedule, name="schedule_compare"),
 ]

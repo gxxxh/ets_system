@@ -51,13 +51,13 @@ class Task:
 def JCT(gpus: List[GPU]):
     """Calculate the JCT of the gpus"""
     jct = sum([gpu.free_time for gpu in gpus])
-    return jct
+    return round(jct,2)
 
 
 def MAKESPAN(gpus: List[GPU]):
     """Calculate the makespan of the gpus"""
     makespan = max([gpu.free_time for gpu in gpus])
-    return makespan
+    return round(makespan, 2)
 
 
 def SJF(tasks: Dict, gpus: List[GPU]) -> List[GPU]:

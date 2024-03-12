@@ -56,14 +56,18 @@ def list_detail(log_id: str):
     if os.path.exists(predict_file):
         predict_df = pd.read_csv(os.path.join(log_path, predict_file))
         predict_df = predict_df[0:30]
+        # 保留小数点后两位
+        predict_df['duration'] = predict_df['duration'].round(2)
+        predict_df['duration_pred'] = predict_df['duration_pred'].round(2)
+        predict_df['gap'] = predict_df['gap_pred'].round(2)
+        predict_df['total'] = predict_df['total_pred'].round(2)
+
         detail['measured'] = predict_df['total'].sum()
         detail['predict'] = predict_df['total_pred'].sum()
         detail['details'] = predict_df.to_dict(orient='records')
         return detail
     else:
         return 'no predict file, please do predict first'
-
-
 
 
 if __name__ == '__main__':
