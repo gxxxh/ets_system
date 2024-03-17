@@ -22,14 +22,21 @@ class GPU:
 
     # to json
     def toJSON(self):
+        queue_info = [{
+            "id": task.id,
+            # "info": task.info,
+            'time': round(task.time_info[self.type], 2)
+        } for task in self.queue]
+        curNum = len(queue_info)
+        for i in range(0, 20 - curNum):
+            queue_info.append({
+                'id': 0,
+                'time': 0,
+            })
         return {
             "id": self.id,
             "type": self.type,
-            "queue": [{
-                "id": task.id,
-                # "info": task.info,
-                'time': task.time_info[self.type]
-            } for task in self.queue],
+            "queue": queue_info
         }
 
 
@@ -51,7 +58,7 @@ class Task:
 def JCT(gpus: List[GPU]):
     """Calculate the JCT of the gpus"""
     jct = sum([gpu.free_time for gpu in gpus])
-    return round(jct,2)
+    return round(jct, 2)
 
 
 def MAKESPAN(gpus: List[GPU]):

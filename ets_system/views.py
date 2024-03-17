@@ -49,8 +49,8 @@ def get_schedule_info(request: HttpRequest) -> JsonResponse:
     gpus = generate_gpus()
     gpus = SJF(tasks, gpus)
     # format gpu queue to 30
-    for gpu in gpus:
-        gpu.queue += [0] * (20-len(gpu.queue))
+    # for gpu in gpus:
+    #     gpu.queue += [0] * (20-len(gpu.queue))
     return JsonResponse({'message': 'success',
                          'data': {
                              'schedule': [gpu.toJSON() for gpu in gpus],
