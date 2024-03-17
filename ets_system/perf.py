@@ -59,8 +59,10 @@ def list_detail(log_id: str):
         # 保留小数点后两位
         predict_df['duration'] = predict_df['duration'].round(2)
         predict_df['duration_pred'] = predict_df['duration_pred'].round(2)
-        predict_df['gap'] = predict_df['gap_pred'].round(2)
-        predict_df['total'] = predict_df['total_pred'].round(2)
+        predict_df['gap'] = predict_df['gap'].round(2)
+        predict_df['gap_pred'] = predict_df['gap_pred'].round(2)
+        predict_df['total'] = predict_df['total'].round(2)
+        predict_df['total_pred'] = predict_df['total_pred'].round(2)
 
         detail['measured'] = predict_df['total'].sum()
         detail['predict'] = predict_df['total_pred'].sum()

@@ -118,11 +118,11 @@ def generate_gpus() -> List[GPU]:
     gpus = []
     # for i in range(5):
     #     gpus.append(GPU(str(i), 'T4'))
-    for i in range(5, 10):
+    for i in range(1, 9):
         gpus.append(GPU(str(i), 'P4'))
-    for i in range(10, 15):
+    for i in range(9, 18):
         gpus.append(GPU(str(i), '2080Ti'))
-    for i in range(15, 20):
+    for i in range(18, 27):
         gpus.append(GPU(str(i), '3080Ti'))
     return gpus
 
@@ -132,8 +132,9 @@ if __name__ == '__main__':
     tasks = load_tasks(time_type)
     gpus = generate_gpus()
     gpus = SJF(tasks, gpus)
-    for gpu in gpus:
-        print(gpu.free_time)
+
+    maxLen = max([len(gpu.queue) for gpu in gpus])
+    print(maxLen)
     print(time_type)
     print(JCT(gpus))
     print(MAKESPAN(gpus))
@@ -142,6 +143,8 @@ if __name__ == '__main__':
     tasks = load_tasks(time_type)
     gpus = generate_gpus()
     gpus = SJF(tasks, gpus)
+    maxLen = max([len(gpu.queue) for gpu in gpus])
+    print(maxLen)
     print(time_type)
     print(JCT(gpus))
     print(MAKESPAN(gpus))
@@ -150,6 +153,8 @@ if __name__ == '__main__':
     tasks = load_tasks(time_type)
     gpus = generate_gpus()
     gpus = SJF(tasks, gpus)
+    maxLen = max([len(gpu.queue) for gpu in gpus])
+    print(maxLen)
     print(time_type)
     print(JCT(gpus))
     print(MAKESPAN(gpus))
